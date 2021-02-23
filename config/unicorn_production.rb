@@ -1,5 +1,15 @@
-require 'fileutils'
-listen '/tmp/nginx.socket'
+# require 'fileutils'
+# listen '/tmp/nginx.socket'
+# before_fork do |server,worker|
+# 	FileUtils.touch('/tmp/app-initialized')
+# end
+
+worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
+timeout 15
+preload_app true
+worker_processes 4
+listen 'unix:///tmp/nginx.socket', backlog: 1024
+
 before_fork do |server,worker|
-	FileUtils.touch('/tmp/app-initialized')
+    FileUtils.touch('/tmp/app-initialized')
 end

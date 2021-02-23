@@ -33,7 +33,7 @@ http {
 		listen <%= ENV["PORT"] %>;
 		server_name exportcl-rails-backend.herokuapp.com;
 		keepalive_timeout 5;
-
+		root /exportLC/public;
 		location @unicorn {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
