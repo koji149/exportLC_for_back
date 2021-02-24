@@ -1,7 +1,7 @@
 build:
   docker:
     web: Dockerfile
-    # nginx: nginx/Dockerfile
+    nginx: nginx/Dockerfile
 run:
-  web: bin/start-nginx-solo
+  web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
 
