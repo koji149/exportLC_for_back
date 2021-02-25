@@ -1,0 +1,6 @@
+build:
+  docker:
+    web: Dockerfile
+    # nginx: nginx/Dockerfile
+run:
+  web: bin/start-nginx bundle exec unicorn -c config/unicorn.rb
