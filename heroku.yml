@@ -3,4 +3,4 @@ build:
     web: Dockerfile
     # nginx: nginx/Dockerfile
 run:
-  web: bin/start-nginx bundle exec unicorn -p $PORT -c ./config/unicorn_production.rb
+  web: ./heroku-buildpack-nginx/bin/start-nginx bundle exec unicorn -p $PORT -c ./config/unicorn_production.rb
