@@ -6,7 +6,7 @@ module Api
         before_action :set_post, only: [:show, :update, :destroy]
 
         def export
-          session = GoogleDrive::Session.from_config('config.json')
+          session = GoogleDrive::Session.from_config('google-credentials.json')
             root_folder_id = ENV['ROOT_FOLDER_ID']
             root_folder = session.collection_by_id(root_folder_id)
 

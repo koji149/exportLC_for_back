@@ -27,3 +27,4 @@
 /config/master.key
 /config.json
 /.env
+/google-credentials.json
