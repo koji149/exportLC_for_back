@@ -3,5 +3,5 @@ build:
     web: Dockerfile
     nginx: nginx/Dockerfile
 run:
-  web: bundle exec unicorn -p $PORT -c ./config/unicorn_production.rb
+  web: dockerize -wait -timeout 20s bundle exec unicorn -p $PORT -c ./config/unicorn_production.rb
   # web: dockerize -wait tcp://db:3306 -timeout 20s bundle exec unicorn -p $PORT -c /exportLC/config/unicorn.conf.rb
